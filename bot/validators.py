@@ -83,12 +83,12 @@ def validate_stop_price(stop_price: str) -> float:
     logger.debug(f"Stop price validated: {sp}")
     return sp
 
-def validate_all_inputs(symbol, side, order_ty, quantity, price=None, stop_price=None):
+def validate_all_inputs(symbol, side, order_type, quantity, price=None, stop_price=None):
     """Master validation function"""
     validated = {}
     validated["symbol"] = validate_symbol(symbol)
     validated["side"] = validate_side(side)
-    validated["order_type"] = validate_order_type(order_ty)
+    validated["order_type"] = validate_order_type(order_type)
     validated["quantity"] = validate_quantity(quantity)
 
     if validated["order_type"] == "LIMIT":

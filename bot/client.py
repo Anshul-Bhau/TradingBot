@@ -26,7 +26,7 @@ class BinanceClient:
         
         self.session = requests.Session()
         self.session.headers.update({
-            "X_MBX_APIKEY":self.api_key,
+            "X-MBX-APIKEY":self.api_key,
             "Content-Type": "application/x-www-form-urlencoded"
         })
 
@@ -70,8 +70,8 @@ class BinanceClient:
             else:
                 raise ValueError(f"Unsupported HTTP method: {method}")
             
-            logger.debug(f"RESPONSE STATUS → {response.status_code}")
-            logger.debug(f"RESPONSE BODY → {response.text}")
+            logger.debug(f"RESPONSE STATUS -> {response.status_code}")
+            logger.debug(f"RESPONSE BODY -> {response.text}")
 
             response.raise_for_status()
 
@@ -98,7 +98,7 @@ class BinanceClient:
             logger.error(msg)
             raise ValueError(msg)
         
-    def _self_params(self, params: dict) -> dict:
+    def _safe_params(self, params: dict) -> dict:
         safe = params.copy()
         if "signature" in safe:
             safe["signature"] = "***hidden***"

@@ -9,7 +9,7 @@ def setup_logger(name: str = "tradingbot") -> logging.Logger:
     -logs/trading_bot.log file
     """
 
-    os.mkdir("logs", exist_ok=True)
+    os.makedirs("logs", exist_ok=True)
     logger = logging.getLogger(name)
     logger.setLevel(logging.DEBUG)
 
