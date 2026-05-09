@@ -44,6 +44,7 @@ class OrderManager:
             "type": "STOP_MARKET",
             "quantity": quantity,
             "stopPrice": stop_price,
+            "closePosition": "false"
         }
 
         logger.info(f"Placing STOP_MARKET order: {side} {quantity} {symbol} @ {stop_price}")
